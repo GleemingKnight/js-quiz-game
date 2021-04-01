@@ -62,7 +62,7 @@ const IndexPage = ({questions}: Props) => {
             {currentQuestion.question}
           </h1>
           <div className={"flex justify-center gap-1 grid grid-rows-" + currentQuestion.answers.length}>
-            {currentQuestion.answers.map((answer) => <button className={state === State.WAITING_FOR_ANSWER ? "pl-3 pr-3 hover:bg-indigo-300 bg-gray-300" : chosenAnswer === answer && answer !== currentQuestion.correctAnswer ? "bg-red-500" : answer === currentQuestion.correctAnswer ? "bg-green-500" : "bg-gray-300"} id={answer} onClick={() => answered(answer)}>{answer}</button>)}
+            {currentQuestion.answers.map((answer) => <button className={"pl-3 pr-3 " + (state === State.WAITING_FOR_ANSWER ? "hover:bg-indigo-300 bg-gray-300" : chosenAnswer === answer && answer !== currentQuestion.correctAnswer ? "bg-red-500" : answer === currentQuestion.correctAnswer ? "bg-green-500" : "bg-gray-300")} id={answer} onClick={() => answered(answer)}>{answer}</button>)}
           </div>
           {state === State.ANSWERED ? <div className="flex justify-center items-center float-right mt-3 rounded-md text-indigo-500 underline">
             <button onClick={nextQuestion}>Next Question</button>
